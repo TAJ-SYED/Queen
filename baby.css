@@ -1,0 +1,177 @@
+/*Background*/
+html, body {
+    overflow: hidden;
+}
+
+body {
+    background: linear-gradient(290deg, #FB35F4, #1FC5A8, #FDABDD);
+    animation: gradient 8s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/*Navbar*/
+.navbar {
+    position: fixed;
+    top: 10px;
+    left: 28%;
+    width: auto;
+    display: flex;
+    background-color: rgba(255, 255, 255, .55);
+    box-shadow: 0 0 8px 20px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 15px;
+}
+
+.navbar a {
+    color: black;
+    font-size: 22px;
+    font-family: monospace;
+    text-decoration: none;
+    display: block;
+    padding: 10px 100px;
+}
+
+.navbar a:hover {
+    background-color: white;
+    border-radius: 15px;
+}
+
+/*Envelope*/
+.envelope {
+    width: 320px;
+    height: 300px;
+    margin: 120px auto;
+    position: relative;
+    perspective: 800px;
+}
+/*Empty space between the flap and letter*/
+.envelope .inner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(248, 117, 170, 0.9);
+    border-radius: 8px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+/*Envelope Letter*/
+.envelope .letter {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: -180%;
+    height: 80%;
+    background: #8CE4FF;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: bottom 700ms cubic-bezier(.2, .8, .2, .1);
+}
+
+/*Envelope Flap*/
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    transform-origin: top center;
+    background: linear-gradient(180deg, #AEDEFC, #EDFFF0);
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid rgba(white 1);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 600ms cubic-bezier(.2, .8, .2, .1);
+    z-index: 5;
+}
+
+/*Rotate Envelope Flap*/
+.envelope:hover .flap {
+    transform: rotateX(160deg) translateY(6px);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
+}
+
+/*Drag letter into view*/
+.envelope:hover .letter {
+    bottom: 0%;
+}
+
+
+.envelope .inner:before {
+    content: " ";
+    position: absolute;
+    top: -6px;
+    left: 6%;
+    right: 6%;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    z-index: 2;
+}
+
+.text {
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 0 20px pink;
+    color: white;
+}
+
+.to {
+    font-family: cursive;
+    text-align: center;
+    text-shadow: 0 0 20px pink;
+    color: white;
+}
+
+/*Heart Animation*/
+
+.floating {
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 24px;
+    color: #ff0062;
+    opacity: 0;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}

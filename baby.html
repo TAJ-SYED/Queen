@@ -1,0 +1,64 @@
+<link rel = "stylesheet" href = "baby.css">
+<link rel = "icon" type = "image/ x-icon" href = "Heart.png">
+
+
+<title>My Queen</title>
+
+<div class = "navbar">
+    <a href = "index.html">HOME</a>
+    <a href = "baby.html">BABY</a>
+    <a href = "mlove.html">MY LOVE</a>
+</div>
+
+<div class = "envelope">
+    <div class = "flap">
+        <div class = "to">
+            <h1>To: Shaba</h1>
+        </div>
+    </div>
+    <div class = "inner">
+        <div class = "letter">
+            <div class = "text">
+                <h2>❤️ MY BABY ❤️</h2>
+                <p>My amazing Queen, the love of my life, the most beautiful thing to me in this entire. ❤️</p>
+                <p>I Love You Baby!</p>
+                <p>You truly are really special, and you mean everything to me. ❤️</p>
+                <sub>Happy Anniversary, Baby ~TAJ ❤️</sub>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id = "floating"></div>
+
+
+<script>
+function spawnHeart() {
+    const fx = document.getElementById("floating");
+
+    const heart = document.createElement("span");
+    heart.classList.add("heart");
+    heart.innerText = "❤";
+
+    // Random horizontal position
+    heart.style.left = Math.random() * 100 + "vw";
+
+    // Random size
+    const size = Math.random() * 20 + 20;
+    heart.style.fontSize = size + "px";
+
+    // Random duration
+    const duration = Math.random() * 4 + 4; 
+    heart.style.animationDuration = duration + "s";
+
+    fx.appendChild(heart);
+
+    // Remove heart after animation
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+// Spawn a heart every 400–900ms
+setInterval(spawnHeart, 100);
+</script>

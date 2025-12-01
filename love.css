@@ -1,0 +1,154 @@
+
+body {
+    background: linear-gradient(290deg, #8b2bd9, #1fc5a8, #377D71); 
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/*Fog in background*/
+.fog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(255,200,220,0.08), rgba(200,220,255,0));
+    animation: fogMove 20s linear infinite;
+    z-index: 1; /* above background, below slideshow and other elements */
+}
+
+@keyframes fogMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+
+/*NavBar*/
+.navbar {
+    position: fixed;
+    top: 10px;
+    left: 28%;
+    width: auto;
+    display: flex;
+    background-color: rgba(255, 255, 255, .55);
+    box-shadow: 0 0 8px 20px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 15px;
+}
+
+.navbar a {
+    color: black;
+    font-size: 22px;
+    font-family: monospace;
+    text-decoration: none;
+    display: block;
+    padding: 10px 100px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: white;
+    border-radius: 15px;
+    transform: scale(1.05);
+}
+
+/*Fancy Text*/
+.text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    background: linear-gradient(90deg, #ff6ec7, #ffb6c1, #ff6ec7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+    text-shadow: 0 0 50px pink;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+
+
+/*Audio Player*/
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15); /* frosted glass */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.audio-player button {
+    font-size: 20px;
+    color: #ffb6c1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.audio-player button:hover {
+    transform: scale(1.2);
+}
+
+#volumeSlider {
+    width: 120px;
+    accent-color: #ffb6c1;
+}
+
+
+
+/*Photo Wall*/
+.photo-wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.polaroid {
+    width: 500px;
+    transform: rotate(-2deg);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.polaroid:hover {
+    transform: translateY(-10px) rotate(0deg) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+@font-face {
+    font-family: 'loveydovey';
+    src: url(cassandra-font/CassandraPersonalUseRegular-3BjG.ttf);
+}
+
+.love-text {
+    font-family: 'loveydovey';
+    font-size: 45px;
+    text-align: center;
+    color: #ff6ec7;
+    text-shadow: 0 0 50px pink;
+}

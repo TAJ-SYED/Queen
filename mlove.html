@@ -1,0 +1,55 @@
+<link rel = "stylesheet" href = "love.css">
+<link rel = "icon" type = "image/ x-icon" href = "Heart.png">
+
+
+<title>My Queen</title>
+
+<!--Foggy Background-->
+<div class="fog"></div>
+
+
+<!--Navbar-->
+<div class = "navbar">
+    <a href = "index.html">HOME</a>
+    <a href = "baby.html">BABY</a>
+    <a href = "mlove.html">MY LOVE</a>
+</div>
+
+<!--Fancy Text-->
+<h1 class = "text">QUEEN SHABA</h1>
+
+
+<!--Custom Audio Player-->
+<div class="audio-player">
+  <button id="playBtn">▶</button>
+  <button id="pauseBtn">⏹</button>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01">
+</div>
+<audio id="mySong" src="HER.mp3"></audio>
+
+<!--Photo Wall-->
+<div class = "photo-wall">
+  <img src = "1P.png" class="polaroid">
+  <img src = "2P.png" class="polaroid">
+  <img src = "3P.png" class="polaroid">
+  
+  <div class = "overlay"></div>
+</div>
+
+<h1 class = "love-text">I LOVE YOU BABY!</h1>
+
+
+
+<script>
+const audio = document.getElementById("mySong");
+const playBtn = document.getElementById("playBtn");
+const pauseBtn = document.getElementById("pauseBtn");
+const volumeSlider = document.getElementById("volumeSlider");
+
+playBtn.addEventListener("click", () => audio.play());
+pauseBtn.addEventListener("click", () => audio.pause());
+volumeSlider.addEventListener("input", () => {
+  audio.volume = volumeSlider.value;
+});
+
+</script>
